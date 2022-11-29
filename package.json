@@ -1,0 +1,23 @@
+{
+  "name": "type-challenge",
+  "private": true,
+  "version": "1.0.0",
+  "description": "<img src=\"https://raw.githubusercontent.com/type-challenges/type-challenges/454767ce6ebb197f29fdbfa04e385042fd15aaf3/screenshots/logo.svg\" />",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TAMAS-Inc/type-challenge.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TAMAS-Inc/type-challenge/issues"
+  },
+  "homepage": "https://github.com/TAMAS-Inc/type-challenge#readme",
+  "dependencies": {
+    "@type-challenges/utils": "^0.1.1"
+  }
+}
