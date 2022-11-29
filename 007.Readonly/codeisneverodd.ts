@@ -29,7 +29,7 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyReadonly<T> = any;
+type MyReadonly<T> = { readonly [t in keyof T]: T[t] };
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
