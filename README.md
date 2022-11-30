@@ -81,13 +81,16 @@ interface Dictionary<Value> {
 `distributive conditional types`은 인스턴스화 중에 union 타입에 자동으로 분산된다.
 
 ```ts
-T extends U ? X : Y with the type argument A | B | C for T
+type Excludes<T, U> = T extends U ? X : Y;
+
+Excludes<A | B | C, A>;
 ```
 
-위는 아래와 같다.
+위 코드는 아래와 같이 추론된다.
 
 ```ts
-(A extends U ? X : Y) | (B extends U ? X : Y) | (C extends U ? X : Y)
+// Excludes<A | B | C, U>;
+(A extends A ? X : Y) | (B extends A ? X : Y) | (C extends A ? X : Y)
 ```
 
 [참고링크](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types)
