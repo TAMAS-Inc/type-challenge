@@ -89,7 +89,7 @@ Excludes<A | B | C, A>;
 위 코드는 아래와 같이 추론된다.
 
 ```ts
-// Excludes<A | B | C, U>;
+// Excludes<A | B | C, A>;
 (A extends A ? X : Y) | (B extends A ? X : Y) | (C extends A ? X : Y)
 ```
 
