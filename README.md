@@ -104,3 +104,21 @@ Excludes<A | B | C, A>;
 [If](https://github.com/type-challenges/type-challenges/blob/main/questions/00268-easy-if/README.ko.md)
 
 [Concat](https://github.com/type-challenges/type-challenges/blob/main/questions/00533-easy-concat/README.md)
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
+
+### 일차 (2022/12/)
+
+[]()
+
+[]()
+
+[]()
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
