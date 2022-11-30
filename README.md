@@ -2,16 +2,18 @@
 
 [Type Challenge](https://github.com/type-challenges/type-challenges) 문제를 함께 푸는 레포지토리입니다.
 
-## 1일차 (2022/11/29)
+### 1일차 (2022/11/29)
 
-[Pick](https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.md)<br>
-[Readonly](https://github.com/type-challenges/type-challenges/blob/main/questions/00007-easy-readonly/README.md)<br>
+[Pick](https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.md)
+
+[Readonly](https://github.com/type-challenges/type-challenges/blob/main/questions/00007-easy-readonly/README.md)
+
 [Tuple to Object](https://github.com/type-challenges/type-challenges/blob/main/questions/00011-easy-tuple-to-object/README.md)
 
 <details>
 <summary>학습한 내용</summary>
 
-## List vs Array vs Tuple
+### List vs Array vs Tuple
 
 1. List
 
@@ -34,7 +36,7 @@
 - cannot be changed or replaced
 - more than one data type
 
-## `T[number]`
+### `T[number]`
 
 - 타입스크립트에서 Array는 index signature를 이용해 이런 식으로 선언되어 있다.
 
@@ -62,8 +64,32 @@ interface Dictionary<Value> {
 
 </details>
 
+### 2일차 (2022/11/30)
+
 [First of Array](https://github.com/type-challenges/type-challenges/blob/main/questions/00014-easy-first/README.md)
 
 [Length of Tuple](https://github.com/type-challenges/type-challenges/blob/main/questions/00018-easy-tuple-length/README.md)
 
 [Exclude](https://github.com/type-challenges/type-challenges/blob/main/questions/00043-easy-exclude/README.md)
+
+<details>
+<summary>학습한 내용</summary>
+
+### Distributive conditional types
+
+타입이 naked 타입 매개변수인 조건 타입을 `distributive conditional types`라고 한다.
+`distributive conditional types`은 인스턴스화 중에 union 타입에 자동으로 분산된다.
+
+```ts
+T extends U ? X : Y with the type argument A | B | C for T
+```
+
+위는 아래와 같다.
+
+```ts
+(A extends U ? X : Y) | (B extends U ? X : Y) | (C extends U ? X : Y)
+```
+
+[참고링크](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types)
+
+</details>
