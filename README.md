@@ -4,11 +4,11 @@
 
 ### 1일차 (2022/11/29)
 
-[Pick](https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.md)
+[Pick](https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.ko.md)
 
-[Readonly](https://github.com/type-challenges/type-challenges/blob/main/questions/00007-easy-readonly/README.md)
+[Readonly](https://github.com/type-challenges/type-challenges/blob/main/questions/00007-easy-readonly/README.ko.md)
 
-[Tuple to Object](https://github.com/type-challenges/type-challenges/blob/main/questions/00011-easy-tuple-to-object/README.md)
+[Tuple to Object](https://github.com/type-challenges/type-challenges/blob/main/questions/00011-easy-tuple-to-object/README.ko.md)
 
 <details>
 <summary>학습한 내용</summary>
@@ -66,11 +66,11 @@ interface Dictionary<Value> {
 
 ### 2일차 (2022/11/30)
 
-[First of Array](https://github.com/type-challenges/type-challenges/blob/main/questions/00014-easy-first/README.md)
+[First of Array](https://github.com/type-challenges/type-challenges/blob/main/questions/00014-easy-first/README.ko.md)
 
-[Length of Tuple](https://github.com/type-challenges/type-challenges/blob/main/questions/00018-easy-tuple-length/README.md)
+[Length of Tuple](https://github.com/type-challenges/type-challenges/blob/main/questions/00018-easy-tuple-length/README.ko.md)
 
-[Exclude](https://github.com/type-challenges/type-challenges/blob/main/questions/00043-easy-exclude/README.md)
+[Exclude](https://github.com/type-challenges/type-challenges/blob/main/questions/00043-easy-exclude/README.ko.md)
 
 <details>
 <summary>학습한 내용</summary>
@@ -96,3 +96,11 @@ Excludes<A | B | C, A>;
 [참고링크](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#distributive-conditional-types)
 
 </details>
+
+### 3일차 (2022/12/01)
+
+[Awaited](https://github.com/type-challenges/type-challenges/blob/main/questions/00189-easy-awaited/README.ko.md)
+
+[If](https://github.com/type-challenges/type-challenges/blob/main/questions/00268-easy-if/README.ko.md)
+
+[Concat](https://github.com/type-challenges/type-challenges/blob/main/questions/00533-easy-concat/README.md)
