@@ -110,13 +110,13 @@ Excludes<A | B | C, A>;
 
 </details>
 
-### 일차 (2022/12/)
+### 4일차 (2022/12/02)
 
-[]()
+[Includes](https://github.com/type-challenges/type-challenges/blob/main/questions/00898-easy-includes/README.ko.md)
 
-[]()
+[Push](https://github.com/type-challenges/type-challenges/blob/main/questions/03057-easy-push/README.ko.md)
 
-[]()
+[Unshift](https://github.com/type-challenges/type-challenges/blob/main/questions/03060-easy-unshift/README.ko.md)
 
 <details>
 <summary>학습한 내용</summary>
