@@ -122,3 +122,14 @@ Excludes<A | B | C, A>;
 <summary>학습한 내용</summary>
 
 </details>
+
+### 5일차 (2022/12/05)
+
+[Parameters](https://github.com/type-challenges/type-challenges/blob/main/questions/03312-easy-parameters/README.ko.md)
+
+[Get_Return_Type](https://github.com/type-challenges/type-challenges/blob/main/questions/00002-medium-return-type/README.ko.md)
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
