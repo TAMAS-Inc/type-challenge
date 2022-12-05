@@ -133,3 +133,14 @@ Excludes<A | B | C, A>;
 <summary>학습한 내용</summary>
 
 </details>
+
+### 6일차 (2022/12/06)
+
+002.Omit
+008.Readonly2
+009.Deep Readonly
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
