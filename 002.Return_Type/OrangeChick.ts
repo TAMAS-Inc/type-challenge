@@ -25,8 +25,8 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyReturnType<T extends Function> = T extends (...args: any[]) => infer U
-  ? U
+type MyReturnType<T extends Function> = T extends (...args: any[]) => infer P
+  ? P
   : never;
 
 /* _____________ 테스트 케이스 _____________ */
