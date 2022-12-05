@@ -4,11 +4,9 @@
 
 ### 1일차 (2022/11/29)
 
-[Pick](https://github.com/type-challenges/type-challenges/blob/main/questions/00004-easy-pick/README.ko.md)
-
-[Readonly](https://github.com/type-challenges/type-challenges/blob/main/questions/00007-easy-readonly/README.ko.md)
-
-[Tuple to Object](https://github.com/type-challenges/type-challenges/blob/main/questions/00011-easy-tuple-to-object/README.ko.md)
+1. Pick
+2. Readonly
+3. Tuple to Object]
 
 <details>
 <summary>학습한 내용</summary>
@@ -66,11 +64,10 @@ interface Dictionary<Value> {
 
 ### 2일차 (2022/11/30)
 
-[First of Array](https://github.com/type-challenges/type-challenges/blob/main/questions/00014-easy-first/README.ko.md)
+1. First of Array
+2. Length of Tuple
 
-[Length of Tuple](https://github.com/type-challenges/type-challenges/blob/main/questions/00018-easy-tuple-length/README.ko.md)
-
-[Exclude](https://github.com/type-challenges/type-challenges/blob/main/questions/00043-easy-exclude/README.ko.md)
+3. Exclude
 
 <details>
 <summary>학습한 내용</summary>
@@ -99,46 +96,74 @@ Excludes<A | B | C, A>;
 
 ### 3일차 (2022/12/01)
 
-[Awaited](https://github.com/type-challenges/type-challenges/blob/main/questions/00189-easy-awaited/README.ko.md)
-
-[If](https://github.com/type-challenges/type-challenges/blob/main/questions/00268-easy-if/README.ko.md)
-
-[Concat](https://github.com/type-challenges/type-challenges/blob/main/questions/00533-easy-concat/README.md)
-
+1. Awaited
+2. If
+3. Concat
 <details>
 <summary>학습한 내용</summary>
 
+### PromiseLike
+
+- ArrayLike 타입과 비슷하게, Promise와 유사한 프로퍼티(then: onfulfilled)를 가진 객체를 PromiseLike 타입으로 추론할 수 있다.
+
+### infer
+
+- 아직 선언되지 않은 변수를 지정할 때 사용할 수 있는 키워드
+- infer 키워드와 함께 선언되면 외부 식별자와의 관계가 끊어지고 오직 해당 문에서만 유지되는 변수를 생성한다.
+- infer 키워드와 선언한 변수는 삼항 연산자, 즉 조건부 타입 맥락 안에서만 사용할 수 있고 '참'인 경우에 대한 타입을 추론한다.
 </details>
 
 ### 4일차 (2022/12/02)
 
-[Includes](https://github.com/type-challenges/type-challenges/blob/main/questions/00898-easy-includes/README.ko.md)
-
-[Push](https://github.com/type-challenges/type-challenges/blob/main/questions/03057-easy-push/README.ko.md)
-
-[Unshift](https://github.com/type-challenges/type-challenges/blob/main/questions/03060-easy-unshift/README.ko.md)
+1. Includes
+2. Push
+3. Unshift
 
 <details>
 <summary>학습한 내용</summary>
+### infer
+infer 키워드를 사용해 재귀적인 타입 추론이 가능하다.
+
+### 스프레드 문법
+
+타입스크립트에서도 자바스크립트와 동일한 전개 구문을 사용할 수 있다.
+
+### readonly
+
+as const로 단언된 값의 타입을 추론할 때는 반드시 readonly를 사용해야 한다.
+
+### Equal
+
+타입이 정확히 같은지 비교하기 위해서는 다음과 같은 구문이 필요하다.
+
+```ts
+type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
+  ? 1
+  : 2
+  ? true
+  : false;
+```
+
+위처럼 제네릭을 사용한 함수의 형태가 동일한지 비교해서 타입이 정확히 같은지 알 수 있다.
 
 </details>
 
 ### 5일차 (2022/12/05)
 
-[Parameters](https://github.com/type-challenges/type-challenges/blob/main/questions/03312-easy-parameters/README.ko.md)
-
-[Get_Return_Type](https://github.com/type-challenges/type-challenges/blob/main/questions/00002-medium-return-type/README.ko.md)
+1. Parameters
+2. Get_Return_Type
 
 <details>
 <summary>학습한 내용</summary>
-
+### infer
+- infer 키워드는 제네릭 `<>` 안에서 사용할 수 없으며 우변에서 조건부 맥락과 함께 사용해야 한다.
 </details>
 
 ### 6일차 (2022/12/06)
 
-002.Omit
-008.Readonly2
-009.Deep Readonly
+1. 002.Omit
+2. 008.Readonly2
+3. 009.Deep Readonly
 
 <details>
 <summary>학습한 내용</summary>
