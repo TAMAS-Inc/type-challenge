@@ -3,13 +3,13 @@
   -------
   by Anthony Fu (@antfu) #medium #array
   
-  ### Question
+  ### 문제
   
-  > TypeScript 4.0 is recommended in this challenge
+  > 이 도전에는 TypeScript 4.0이 권장됩니다
   
-  Implement a generic `Last<T>` that takes an Array `T` and returns its last element.
-  
-  For example
+  배열 `T`를 사용하고 마지막 요소를 반환하는 제네릭 `Last<T>`를 구현합니다.
+
+  예시
   
   ```ts
   type arr1 = ['a', 'b', 'c']
