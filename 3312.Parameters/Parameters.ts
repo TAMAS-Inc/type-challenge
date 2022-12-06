@@ -20,11 +20,7 @@
 
 /* _____________ 여기에 코드 입력 _____________ */
 
-type MyParameters<T extends (...args: any[]) => any> = T extends (
-  ...args: infer U
-) => any
-  ? [...U]
-  : never;
+type MyParameters<T extends (...args: any[]) => any> = any;
 
 /* _____________ 테스트 케이스 _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
