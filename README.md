@@ -169,3 +169,14 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 <summary>학습한 내용</summary>
 
 </details>
+
+### 7일차 (2022/12/07)
+
+1. 010.Tuple to Union
+2. 012.Chainable Options
+3. 015.Last of Array
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
