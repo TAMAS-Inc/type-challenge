@@ -179,4 +179,23 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 <details>
 <summary>학습한 내용</summary>
 
+## TypeScript v.4.2
+
+- Smarter type alias preservation
+  - 올바른 타입으로 별칭 추론
+- Leading/middle rest elements in tuple types
+  - 스프레드 연산자를 처음, 중간 위치에서 쓸 수 있음
+- Stricter checks for the in operator
+  - in 연산자를 엄격하게 검사하고 오류를 명확하게 표시
+- --noPropertyAccessFromIndexSignature
+  - 점 연산자로 속성을 찾을 수 있음
+- Template literal expressions have template literal types
+  - 템플릿 리터럴 표현식의 결과를 추론
+- Improved uncalled function checks in logical expressions
+  - 호출되지 않은 함수 에러
+- Better understanding of the compile process
+  - `tsc --explainFiles`
+- Support for Abstract Constructor Types
+  - `abstract` 타입 지원
+
 </details>
