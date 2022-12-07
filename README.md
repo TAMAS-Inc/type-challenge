@@ -199,3 +199,14 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
   - `abstract` 타입 지원
 
 </details>
+
+## 8일차 (2022/12/08)
+
+1. 062.Type Lookup
+2. 020.Promise.all
+3. 016.Pop
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
