@@ -210,3 +210,14 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 <summary>학습한 내용</summary>
 
 </details>
+
+## 9일차 (2022/12/09)
+
+1. 106.Trim Left
+2. 108.Trim
+3. 110.Capitalize
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
