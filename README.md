@@ -220,4 +220,6 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 <details>
 <summary>학습한 내용</summary>
 
+[Template literal types](https://toss.tech/article/template-literal-types)
+
 </details>
