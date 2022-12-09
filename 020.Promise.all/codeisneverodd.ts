@@ -24,18 +24,18 @@
 /* _____________ Your Code Here _____________ */
 
 // your answers
-type UnPromise<T1 extends readonly unknown[]> = T1["length"] extends 0
+type UnPromise<T extends readonly unknown[]> = T["length"] extends 0
   ? []
-  : T1 extends readonly [infer First, ...infer Rest]
+  : T extends readonly [infer First, ...infer Rest]
   ? [Awaited<First>, ...UnPromise<Rest>]
-  : T1 extends (infer U | Promise<infer P>)[]
+  : T extends (infer U | Promise<infer P>)[]
   ? (U | P)[]
-  : T1;
+  : T;
 
 declare function PromiseAll<T extends unknown[]>(
   args: readonly [...T]
 ): Promise<UnPromise<T>>;
-const t = Array<number>
+
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from "@type-challenges/utils";
 
