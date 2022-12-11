@@ -223,3 +223,14 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 [Template literal types](https://toss.tech/article/template-literal-types)
 
 </details>
+
+## 10일차 (2022/12/12)
+
+1. 116.Replace
+2. 119.ReplaceAll
+3. 191.Append Argument
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
