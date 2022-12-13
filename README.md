@@ -244,4 +244,16 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 <details>
 <summary>학습한 내용</summary>
 
+Distributive Conditional Types
+
+```ts
+type P<T> = T extends never ? true : false;
+type A1 = P<never>; //never
+type A2 = P<any>; //boolean
+
+type Q<T> = [T] extends [never] ? true : false;
+type B1 = Q<never>; //true
+type B2 = Q<any>; //false
+```
+
 </details>
