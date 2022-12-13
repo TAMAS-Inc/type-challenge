@@ -257,3 +257,14 @@ type B2 = Q<any>; //false
 ```
 
 </details>
+
+## 12일차 (2022/12/14)
+
+1. 527.Append to Object
+2. 529.Absolute
+3. 531.String to Union
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
