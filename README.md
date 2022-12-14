@@ -267,4 +267,12 @@ type B2 = Q<any>; //false
 <details>
 <summary>학습한 내용</summary>
 
+- PropertyKey 타입
+
+```ts
+type OptionsFlags<Type> = {
+  [Property in keyof Type]: boolean;
+};
+```
+
 </details>
