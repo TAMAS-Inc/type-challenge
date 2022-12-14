@@ -276,3 +276,14 @@ type OptionsFlags<Type> = {
 ```
 
 </details>
+
+## 13일차 (2022/12/15)
+
+1. 599.Merge
+2. 612.KebabCase
+3. 645.Diff
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
