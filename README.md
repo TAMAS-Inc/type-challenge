@@ -292,3 +292,14 @@ type OptionsFlags<Type> = {
 - Omit : K 타입의 프로퍼티를 제외하고 T의 프로퍼티로 타입을 생성
 
 </details>
+
+## 14일차 (2022/12/16)
+
+1. 949.AnyOf
+2. 1042.IsNever
+3. 1097.IsUnion
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
