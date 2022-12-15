@@ -286,4 +286,9 @@ type OptionsFlags<Type> = {
 <details>
 <summary>학습한 내용</summary>
 
+- Record<PropertyKey, unknown> : T의 프로퍼티 K로 구성
+- Uncapitalize : 문자열 리터럴 타입의 첫 번째 문자를 소문자로 변환
+- Lowercase : 문자열 리터럴 타입 전체를 소문자로 변환
+- Omit : K 타입의 프로퍼티를 제외하고 T의 프로퍼티로 타입을 생성
+
 </details>
