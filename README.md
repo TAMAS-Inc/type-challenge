@@ -303,3 +303,14 @@ type OptionsFlags<Type> = {
 <summary>학습한 내용</summary>
 
 </details>
+
+## 15일차 (2022/12/17)
+
+1. 1130.ReplaceKeys
+2. 1367.Remove Index Signature
+3. 1978.Percentage Parser
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
