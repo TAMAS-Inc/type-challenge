@@ -314,3 +314,14 @@ type OptionsFlags<Type> = {
 <summary>학습한 내용</summary>
 
 </details>
+
+## 15일차 (2022/12/19)
+
+1. 2070.Drop Char
+2. 2257.MinusOne
+3. 2595.PickByType
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
