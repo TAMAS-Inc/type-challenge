@@ -325,3 +325,14 @@ type OptionsFlags<Type> = {
 <summary>학습한 내용</summary>
 
 </details>
+
+## 16일차 (2022/12/20)
+
+1. 2688.StartsWith
+2. 2693.EndsWith
+3. 2757.PartialByKeys
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
