@@ -24,8 +24,6 @@
 /* _____________ Your Code Here _____________ */
 
 type PickByType<T, U> = {
-  // [K in U extends T[K] ? keyof T : never]: T[K] extends U ? T[K] : never;
-  // [K in keyof T]: T[K] extends U ? T[K] : never
   [K in keyof T as T[K] extends U ? K : never]: T[K];
 };
 

@@ -18,11 +18,10 @@
 
 /* _____________ Your Code Here _____________ */
 
-type DropChar<S extends string, From extends string> = From extends ''
-  ? S
-  : S extends `${infer A}${From}${infer B}`
-  ? `${A}${DropChar<B, From>}`
-  : S;
+type DropChar<
+  S extends string,
+  C extends string
+> = S extends `${infer A}${C}${infer B}` ? `${A}${DropChar<B, C>}` : S;
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
