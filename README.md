@@ -315,7 +315,7 @@ type OptionsFlags<Type> = {
 
 </details>
 
-## 15일차 (2022/12/19)
+## 16일차 (2022/12/19)
 
 1. 2070.Drop Char
 2. 2257.MinusOne
@@ -326,11 +326,22 @@ type OptionsFlags<Type> = {
 
 </details>
 
-## 16일차 (2022/12/20)
+## 17일차 (2022/12/20)
 
 1. 2688.StartsWith
 2. 2693.EndsWith
 3. 2757.PartialByKeys
+
+<details>
+<summary>학습한 내용</summary>
+
+</details>
+
+## 18일차 (2022/12/21)
+
+1. 2759.RequiredByKeys
+2. 2793.Mutable
+3. 2852.OmitByType
 
 <details>
 <summary>학습한 내용</summary>
