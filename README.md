@@ -50,7 +50,7 @@ interface ArrayMaybe<Element> {
 
 - Array에 대해서 `T[number]` 또는 `T['length']`를 사용할 수 있다. Array는 number타입의 index를 가지고 있으며, 'length'라는 속성을 가지고 있기 때문이다.
 
-- 만약 `T[string]`을 사용한다면 참조할 자료유형은 다음 예시와 같을 것이다.
+- 만약 `T[string]`을 사용한다면 참조할 자료타입은 다음 예시와 같을 것이다.
 
 ```ts
 interface Dictionary<Value> {
@@ -345,5 +345,18 @@ type OptionsFlags<Type> = {
 
 <details>
 <summary>학습한 내용</summary>
+
+### 매핑된 타입 수정자 제어
+
+매핑된 타입은 읽기 전용 또는 ? 추가를 지원한다.
+이것은 기본적으로 기본 타입의 수정자를 유지하는 동형 매핑 타입에서 중요하다.
+
+TypeScript 2.8은 특정 수정자를 추가하거나 제거하기 위해 매핑된 타입에 대한 기능을 추가했다다.
+특히 매핑된 타입의 속성 수정자에 readonly 또는 ?에 + 또는 -를 접두사로 추가하여 수정자를 추가하거나 제거해야 함을 나타낼 수 있다.
+
+```ts
+-readonly [P in keyof T]-?: T[P] }; // Remove readonly and ?
+type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly and ?
+```
 
 </details>
