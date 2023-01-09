@@ -360,3 +360,15 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
 ```
 
 </details>
+
+## 19일차 (2023/01/09)
+
+1. 2946.ObjectEntries
+2. 3062.Shift
+3. 3188.Tuple to Nested Object
+
+<details>
+<summary>학습한 내용</summary>
+
+
+</details>
