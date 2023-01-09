@@ -30,7 +30,7 @@ type Flatten<T> = {
 };
 
 type RequiredByKeys<T, K extends keyof T = keyof T> = Flatten<
-  Omit<T, K> & { [P in K]-?: T[P] }
+  Omit<T, K> & { [k in K]-?: T[k] }
 >;
 
 /* _____________ Test Cases _____________ */

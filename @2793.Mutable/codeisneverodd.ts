@@ -26,7 +26,7 @@
 /* _____________ Your Code Here _____________ */
 
 type Mutable<T extends object> = {
-  -readonly [k in keyof T]: T[k];
+  -readonly [t in keyof T]: T[t];
 };
 
 /* _____________ Test Cases _____________ */
