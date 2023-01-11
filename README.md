@@ -370,5 +370,15 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
 <details>
 <summary>학습한 내용</summary>
 
+</details>
+
+## 20일차 (2023/01/11)
+
+1. 3192.Reverse
+2. 3196.Flip Arguments
+3. 3243.FlattenDepth
+
+<details>
+<summary>학습한 내용</summary>
 
 </details>
