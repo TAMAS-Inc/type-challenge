@@ -30,13 +30,13 @@ type Flatten<T extends unknown[]> = T extends [infer A, ...infer B]
 // typescript에서 순회할 때 다음과 같은 방법을 사용해볼 수 있다.
 type FlattenDepth<
   T extends unknown[],
-  N extends number = 1,
-  R extends unknown[] = [],
+  TerminationNumber extends number = 1,
+  Increment extends unknown[] = [],
 > = T extends Flatten<T>
   ? T
-  : N extends R['length']
+  : TerminationNumber extends Increment['length']
   ? T
-  : FlattenDepth<Flatten<T>, N, [0, ...R]>;
+  : FlattenDepth<Flatten<T>, TerminationNumber, [0, ...Increment]>;
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils';
