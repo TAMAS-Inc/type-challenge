@@ -381,4 +381,102 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
 <details>
 <summary>학습한 내용</summary>
 
+### `Function` vs `(...arg: any) => any`
+
+- 전역 타입 `Function`은 JavaScript의 모든 함수 값에 존재하는 bind, call, apply 및 기타 속성과 같은 속성을 설명한다.
+- `Function` 타입의 값을 항상 호출할 수 있는 특수 속성도 있다. 이러한 호출은 다음을 반환한다.
+
+  ```ts
+  function doSomething(f: Function) {
+    return f(1, 2, 3);
+  }
+  ```
+
+- 위는 일반적으로 반환 타입이 안전하지 않기 때문에 피하는 것이 좋다.
+- 임의의 함수에 대해 호출 의도가 없다면 일반적으로 `() => void` 형식이 더 안전하다.
+
+### `object` vs `Object`
+
+- `object` 타입은 원시값이 아닌 모든 값을 나타낸다. `{}`와 `[]`를 할당할 수 있지만 원시값은 할당할 수 없다.
+
+  ```ts
+  let object: object;
+  object = { prop: 0 };
+  object = [];
+
+  // object = 42; // Error
+  // object = "string"; // Error
+  // object = false; // Error
+  // object = null; // Error
+  // object = undefined; // Error
+  ```
+
+- `Object` 타입은 모든 `Object`의 **기능**을 설명한다. null을 제외한 모든 형식을 할당할 수 있다.
+
+  - 예를 들어 `Object` 타입에는 모든 `Object`에서 액세스할 수 있는 `toString()` 및 `valueOf()` 메서드가 있다.
+  - `{}` : 빈 유형으로 속성이 없는 객체. 속성에 접근할 수 없다. 하지만 `Object` 메서드를 호출할 수 있다.
+
+    ```ts
+    let object: {};
+    // let object: Object;
+
+    object = { prop: 0 };
+    object = [];
+    object = 42;
+    object = 'string';
+    object = false;
+
+    // object = null; // error
+    // object = undefined; // error
+    ```
+
+- 객체 내부 프로퍼티 타입
+
+  - `"noImplicitAny": true`인 경우, `object`나 `{}`로 타입을 선언하고 내부 프로퍼티를 참조하고자 할 때 string 형태의 key 참조가 되지 않는 경우가 있다.
+    객체 내부 프로퍼티 타입을 정확히 명시하거나, 아래 코드와 같이 명시해주면 해결된다.
+  - `object`는 string 혹은 number만을 key 값으로 가질 수 있으며 더 유연한 형태로는 `Map()`을 사용할 수 있다.
+
+    ```ts
+    // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
+    const obj1: { [key: string]: any } = {};
+    obj1['name'] = 'hi';
+    obj1[1] = 'hi';
+
+    // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
+    const obj2: { name: string; num: number } = { name: '', num: 0 };
+    obj2['name'] = 'hi';
+    // obj2["something"] = "hi"; // error
+
+    // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
+    const obj3: { [key: string]: any; name: string } = {
+      name: 'should_be_initialized',
+    };
+    // const obj4: { [key: string]: any; name: string } = {}; // error
+    obj3['something'] = 'hi';
+    ```
+
+### TypeScript에서 반복문으로 타입 얻기
+
+```ts
+type Statement<T> = any;
+
+type Iteration<
+  T extends any[],
+  Termination extends number = 1,
+  Increment extends any[] = [],
+> = Termination extends Increment['length']
+  ? T
+  : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
+```
+
+- 참고한 링크
+
+  [Function](https://www.typescriptlang.org/docs/handbook/2/functions.html#function)
+
+  [The original intention of Function is to not be callable](https://github.com/Microsoft/TypeScript/issues/20007)
+
+  [TypeScript Object 다루기](https://muhly.tistory.com/139)
+
+  [TypeScript object Type](https://www.typescripttutorial.net/typescript-tutorial/typescript-object-type/)
+
 </details>
