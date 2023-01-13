@@ -21,14 +21,12 @@
 
 /* _____________ Your Code Here _____________ */
 //함수 파라미터를 받을 때, infer 활용
-type ReverseTuple<T> = T extends [...infer Heads, infer Tail]
-  ? [Tail, ...ReverseTuple<Heads>]
+type Reverse<T extends unknown[]> = T extends [...infer A, infer B]
+  ? [B, ...Reverse<A>]
   : [];
 
-type FlipArguments<T extends Function> = T extends (
-  ...args: infer TArguments
-) => infer TReturn
-  ? (...args: ReverseTuple<TArguments>) => TReturn
+type FlipArguments<T extends Function> = T extends (...args: infer A) => infer R
+  ? (...args: Reverse<A>) => R
   : never;
 
 // type Reverse<T extends any[]> = T extends [infer A, ...infer B]

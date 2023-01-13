@@ -21,16 +21,16 @@
 
 /* _____________ Your Code Here _____________ */
 // 제 3의 파라미터 R의 length를 이용해 count
-type Flatten<T extends any[]> = T extends [infer F, ...infer O]
-  ? F extends any[]
-    ? [...F, ...Flatten<O>]
-    : [F, ...Flatten<O>]
-  : T;
+type Flatten<T extends unknown[]> = T extends [infer A, ...infer B]
+  ? A extends unknown[]
+    ? [...A, ...Flatten<B>]
+    : [A, ...Flatten<B>]
+  : [];
 
 type FlattenDepth<
-  T extends any[],
+  T extends unknown[],
   C extends number = 1,
-  R extends any[] = []
+  R extends unknown[] = []
 > = T extends Flatten<T>
   ? T
   : C extends R["length"]
