@@ -4,6 +4,11 @@
 
 > [Type Challenge](https://github.com/type-challenges/type-challenges) 문제를 함께 푸는 레포지토리입니다. 꾸준히 문제를 풀고 학습한 내용을 정리합니다
 
+## 작성 가이드
+
+1. 오늘 날짜에 배운 내용을 정리한다
+2. 정리한 내용을 유형에 맞게 분류하고, 관련 문제를 적는다.
+
 ## TOC
 
 > 영어와 `.` 이외의 문자가 들어가면 링크가 정상적으로 작동하지 않습니다.
@@ -219,7 +224,13 @@
 
   ### 11. Distributive Conditional Types
 
-  **📚 관련 문제**: 296.Permutation, 298.Length_of_String, 459.Flatten
+  **📚 관련 문제**: 296.Permutation, 298.Length_of_String, 459.Flatten, 3376.InorderTraversal
+
+  1. 유니온이 extends 구문에 사용되면, 분배되어 동작한다.
+  2. 단, 유니온이 대괄호(`[]`) 에 감싸지면 분배되지 않는다.
+
+
+  아래의 예시를 보면 never와 any 가 유니온임을 알 수 있다.
 
   ```ts
   type P<T> = T extends never ? true : false;
@@ -230,6 +241,23 @@
   type B1 = Q<never>; //true
   type B2 = Q<any>; //false
   ```
+
+  또다른 예시
+
+  ```ts
+  type DCT<Type> = Type extends any ? Type[] : never;
+  type Result1 = DCT<string | number>;
+  // => string[] | number[]
+
+  type NotDCT<Type> = [Type] extends [any] ? Type[] : never;
+  type Result2 = NotDCT<string | number>;
+  // => (string|number)[]
+  ```
+
+  🔗 **참고링크**
+
+  - [never는 빈 유니온 처럼 동작한다.](https://github.com/microsoft/TypeScript/issues/23182#issuecomment-379094672)
+  - [distributive-conditional-types](https://www.typescriptlang.org/docs/handbook/2/conditional-types.html?msclkid=c7e18040c87b11ec98204fd236267031#distributive-conditional-types)
 
   ### 12. PropertyKey Type
 
@@ -819,3 +847,20 @@ type Iteration<
 1.  3326.BEM style string
 2.  3376.InorderTraversal
 3.  4179.Flip
+
+<details>
+<summary>학습한 내용</summary>
+#### Distributive Conditional Types
+Distributive Conditional Types 에서 대괄호`[]`는 분배를 막는다.
+
+```ts
+type DCT<Type> = Type extends any ? Type[] : never;
+type Result1 = DCT<string | number>;
+// => string[] | number[]
+
+type NotDCT<Type> = [Type] extends [any] ? Type[] : never;
+type Result2 = NotDCT<string | number>;
+// => (string|number)[]
+```
+
+</details>
