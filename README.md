@@ -229,7 +229,6 @@
   1. 유니온이 extends 구문에 사용되면, 분배되어 동작한다.
   2. 단, 유니온이 대괄호(`[]`) 에 감싸지면 분배되지 않는다.
 
-
   아래의 예시를 보면 never와 any 가 유니온임을 알 수 있다.
 
   ```ts
@@ -347,7 +346,7 @@
       object = { prop: 0 };
       object = [];
       object = 42;
-      object = "string";
+      object = 'string';
       object = false;
 
       // object = null; // error
@@ -363,20 +362,20 @@
       ```ts
       // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
       const obj1: { [key: string]: any } = {};
-      obj1["name"] = "hi";
-      obj1[1] = "hi";
+      obj1['name'] = 'hi';
+      obj1[1] = 'hi';
 
       // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-      const obj2: { name: string; num: number } = { name: "", num: 0 };
-      obj2["name"] = "hi";
+      const obj2: { name: string; num: number } = { name: '', num: 0 };
+      obj2['name'] = 'hi';
       // obj2["something"] = "hi"; // error
 
       // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
       const obj3: { [key: string]: any; name: string } = {
-        name: "should_be_initialized",
+        name: 'should_be_initialized',
       };
       // const obj4: { [key: string]: any; name: string } = {}; // error
-      obj3["something"] = "hi";
+      obj3['something'] = 'hi';
       ```
 
   🔗 **참고링크**
@@ -393,8 +392,8 @@
   type Iteration<
     T extends any[],
     Termination extends number = 1,
-    Increment extends any[] = []
-  > = Termination extends Increment["length"]
+    Increment extends any[] = [],
+  > = Termination extends Increment['length']
     ? T
     : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
   ```
@@ -784,7 +783,7 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     object = { prop: 0 };
     object = [];
     object = 42;
-    object = "string";
+    object = 'string';
     object = false;
 
     // object = null; // error
@@ -800,20 +799,20 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     ```ts
     // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
     const obj1: { [key: string]: any } = {};
-    obj1["name"] = "hi";
-    obj1[1] = "hi";
+    obj1['name'] = 'hi';
+    obj1[1] = 'hi';
 
     // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-    const obj2: { name: string; num: number } = { name: "", num: 0 };
-    obj2["name"] = "hi";
+    const obj2: { name: string; num: number } = { name: '', num: 0 };
+    obj2['name'] = 'hi';
     // obj2["something"] = "hi"; // error
 
     // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
     const obj3: { [key: string]: any; name: string } = {
-      name: "should_be_initialized",
+      name: 'should_be_initialized',
     };
     // const obj4: { [key: string]: any; name: string } = {}; // error
-    obj3["something"] = "hi";
+    obj3['something'] = 'hi';
     ```
 
 #### Counted Loop
@@ -824,8 +823,8 @@ type Statement<T> = any;
 type Iteration<
   T extends any[],
   Termination extends number = 1,
-  Increment extends any[] = []
-> = Termination extends Increment["length"]
+  Increment extends any[] = [],
+> = Termination extends Increment['length']
   ? T
   : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
 ```
@@ -864,3 +863,9 @@ type Result2 = NotDCT<string | number>;
 ```
 
 </details>
+
+### DAY 22 230116
+
+1.  4182.Fibonacci Sequence
+2.  4260.AllCombinations
+3.  4425.Greater Than
