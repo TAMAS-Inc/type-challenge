@@ -73,6 +73,7 @@
     - [`object` vs `Object`](#-object--vs--object-)
     - [Counted Loop](#counted-loop)
   - [DAY 21 230113](#day-21-230113)
+  - [DAY 22 230116](#day-22-230116)
 
   ## Types
 
@@ -346,7 +347,7 @@
       object = { prop: 0 };
       object = [];
       object = 42;
-      object = 'string';
+      object = "string";
       object = false;
 
       // object = null; // error
@@ -362,20 +363,20 @@
       ```ts
       // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
       const obj1: { [key: string]: any } = {};
-      obj1['name'] = 'hi';
-      obj1[1] = 'hi';
+      obj1["name"] = "hi";
+      obj1[1] = "hi";
 
       // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-      const obj2: { name: string; num: number } = { name: '', num: 0 };
-      obj2['name'] = 'hi';
+      const obj2: { name: string; num: number } = { name: "", num: 0 };
+      obj2["name"] = "hi";
       // obj2["something"] = "hi"; // error
 
       // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
       const obj3: { [key: string]: any; name: string } = {
-        name: 'should_be_initialized',
+        name: "should_be_initialized",
       };
       // const obj4: { [key: string]: any; name: string } = {}; // error
-      obj3['something'] = 'hi';
+      obj3["something"] = "hi";
       ```
 
   🔗 **참고링크**
@@ -392,8 +393,8 @@
   type Iteration<
     T extends any[],
     Termination extends number = 1,
-    Increment extends any[] = [],
-  > = Termination extends Increment['length']
+    Increment extends any[] = []
+  > = Termination extends Increment["length"]
     ? T
     : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
   ```
@@ -783,7 +784,7 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     object = { prop: 0 };
     object = [];
     object = 42;
-    object = 'string';
+    object = "string";
     object = false;
 
     // object = null; // error
@@ -799,20 +800,20 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     ```ts
     // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
     const obj1: { [key: string]: any } = {};
-    obj1['name'] = 'hi';
-    obj1[1] = 'hi';
+    obj1["name"] = "hi";
+    obj1[1] = "hi";
 
     // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-    const obj2: { name: string; num: number } = { name: '', num: 0 };
-    obj2['name'] = 'hi';
+    const obj2: { name: string; num: number } = { name: "", num: 0 };
+    obj2["name"] = "hi";
     // obj2["something"] = "hi"; // error
 
     // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
     const obj3: { [key: string]: any; name: string } = {
-      name: 'should_be_initialized',
+      name: "should_be_initialized",
     };
     // const obj4: { [key: string]: any; name: string } = {}; // error
-    obj3['something'] = 'hi';
+    obj3["something"] = "hi";
     ```
 
 #### Counted Loop
@@ -823,8 +824,8 @@ type Statement<T> = any;
 type Iteration<
   T extends any[],
   Termination extends number = 1,
-  Increment extends any[] = [],
-> = Termination extends Increment['length']
+  Increment extends any[] = []
+> = Termination extends Increment["length"]
   ? T
   : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
 ```
@@ -849,7 +850,9 @@ type Iteration<
 
 <details>
 <summary>학습한 내용</summary>
+
 #### Distributive Conditional Types
+
 Distributive Conditional Types 에서 대괄호`[]`는 분배를 막는다.
 
 ```ts
@@ -869,3 +872,36 @@ type Result2 = NotDCT<string | number>;
 1.  4182.Fibonacci Sequence
 2.  4260.AllCombinations
 3.  4425.Greater Than
+
+<details>
+<summary>학습한 내용</summary>
+
+#### 숫자를 다룰 때는 배열의 길이로(Counted Loop)
+
+```ts
+type GreaterThan<
+  T extends number,
+  U extends number,
+  C extends any[] = []
+> = T extends C["length"]
+  ? false
+  : U extends C["length"]
+  ? true
+  : GreaterThan<T, U, [...C, ""]>;
+```
+
+#### string -> union 쪼개기 및 Distributive Conditional Types
+
+```ts
+type StringToUnion<S extends string> = S extends `${infer A}${infer Rest}`
+  ? A | StringToUnion<Rest>
+  : "";
+
+type Combinations<T extends string, U = T> = U extends T
+  ? U | `${U}${Combinations<Exclude<T, U>>}`
+  : never;
+
+type AllCombinations<S extends string> = Combinations<StringToUnion<S>>;
+```
+
+</details>
