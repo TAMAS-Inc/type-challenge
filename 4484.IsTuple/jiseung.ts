@@ -28,7 +28,7 @@
 
 type IsTuple<T> = [T] extends [never]
   ? false
-  : T extends readonly unknown[]
+  : T extends ReadonlyArray<unknown>
   ? number extends T['length']
     ? false
     : true

@@ -11,11 +11,12 @@
 
 ## TOC
 
-> 영어와 `.` 이외의 문자가 들어가면 링크가 정상적으로 작동하지 않습니다.
+<!-- > 영어와 `.` 이외의 문자가 들어가면 링크가 정상적으로 작동하지 않습니다. -->
 
 - [Types](#types)
+
   - [1. List vs Array vs Tuple](#1-list-vs-array-vs-tuple)
-  - [2. T[number]](#2-t-number-)
+  - [2. T[number]](#2-tnumber)
   - [3. Distributive conditional types](#3-distributive-conditional-types)
   - [4. PromiseLike](#4-promiselike)
   - [5. infer](#5-infer)
@@ -28,52 +29,56 @@
   - [12. PropertyKey Type](#12-propertykey-type)
   - [13. Useful Generics](#13-useful-generics)
   - [14. Mapping Modifiers](#14-mapping-modifiers)
-  - [15. Function vs (...arg: any) => any](#15-function-vs--arg--any-----any)
+  - [15. Function vs (...arg: any) => any](#15-function-vs-arg-any--any)
   - [16. object vs Object](#16-object-vs-object)
   - [17. Counted Loop](#17-counted-loop)
+  - [18. Array and Tuple](#18-array-and-tuple)
+
 - [Dates](#dates)
 
   - [DAY 1 22.11.29](#day-1-221129)
-    - [List vs Array vs Tuple](#list-vs-array-vs-tuple)
-    - [`T[number`](#-t-number-)
+    - [List vs Array vs Tuple](#1-list-vs-array-vs-tuple)
+    - [`T[number]`](#2-tnumber)
   - [DAY 2 221130](#day-2-221130)
-    - [Distributive conditional types](#distributive-conditional-types)
+    - [Distributive conditional types](#11-distributive-conditional-types)
   - [DAY 3 221201](#day-3-221201)
-    - [PromiseLike](#promiselike)
-    - [infer](#infer)
+    - [PromiseLike](#4-promiselike)
+    - [infer](#5-infer)
   - [DAY 4 221202](#day-4-221202)
-    - [infer](#infer-1)
-    - [Spread Syntax](#spread-syntax)
-    - [readonly](#readonly)
-    - [Equal](#equal)
+    - [infer](#5-infer)
+    - [Spread Syntax](#6-spread-syntax)
+    - [readonly](#7-readonly)
+    - [Equal](#8-equal)
   - [DAY 5 221205](#day-5-221205)
-    - [infer](#infer-2)
+    - [infer](#5-infer)
   - [DAY 6 221206](#day-6-221206)
   - [DAY 7 221207](#day-7-221207)
-    - [TypeScript v.4.2](#typescript-v42)
+    - [TypeScript v.4.2](#9-typescript-v42)
   - [DAY 8 221208](#day-8-221208)
   - [DAY 9 221209](#day-9-221209)
-    - [Template literal types](#template-literal-types)
+    - [Template literal types](#10-template-literal-types)
   - [DAY 10 221212](#day-10-221212)
   - [DAY 11 221213](#day-11-221213)
-    - [Distributive Conditional Types](#distributive-conditional-types)
+    - [Distributive Conditional Types](#11-distributive-conditional-types)
   - [DAY 12 221214](#day-12-221214)
-  - [PropertyKey Type](#propertykey-type)
+  - [PropertyKey Type](#12-propertykey-type)
   - [DAY 13 221215](#day-13-221215)
-    - [Useful Generics](#useful-generics)
+    - [Useful Generics](#13-useful-generics)
   - [DAY 14 221216](#day-14-221216)
   - [DAY 15 221217](#day-15-221217)
   - [DAY 16 221219](#day-16-221219)
   - [DAY 17 221220](#day-17-221220)
   - [DAY 18 221221](#day-18-221221)
-    - [Mapping Modifiers](#mapping-modifiers)
+    - [Mapping Modifiers](#14-mapping-modifiers)
   - [DAY 19 230109](#day-19-230109)
   - [DAY 20 230111](#day-20-230111)
-    - [`Function` vs `(...arg: any) => any`](#-function--vs---arg--any-----any-)
-    - [`object` vs `Object`](#-object--vs--object-)
-    - [Counted Loop](#counted-loop)
+    - [`Function` vs `(...arg: any) => any`](#15-function-vs-arg-any--any)
+    - [`object` vs `Object`](#16-object-vs-object)
+    - [Counted Loop](#17-counted-loop)
   - [DAY 21 230113](#day-21-230113)
   - [DAY 22 230116](#day-22-230116)
+  - [DAY 23 230118](#day-23-230118)
+    - [Array and Tuple](#18-array-and-tuple)
 
   ## Types
 
@@ -108,11 +113,11 @@
 
   - 타입스크립트에서 Array는 index signature를 이용해 이런 식으로 선언되어 있다.
 
-  ```ts
-  interface ArrayMaybe<Element> {
-    [index: number]: Element;
-  }
-  ```
+    ```ts
+    interface ArrayMaybe<Element> {
+      [index: number]: Element;
+    }
+    ```
 
   1.  **인덱스 시그니처**는 특정 타입의 key나 특정 타입의 value를 가진 프로퍼티를 가리킨다.
 
@@ -122,11 +127,11 @@
 
   - 만약 `T[string]`을 사용한다면 참조할 자료타입은 다음 예시와 같을 것이다.
 
-  ```ts
-  interface Dictionary<Value> {
-    [key: string]: Value;
-  }
-  ```
+    ```ts
+    interface Dictionary<Value> {
+      [key: string]: Value;
+    }
+    ```
 
   🔗 **참고링크**
 
@@ -295,9 +300,11 @@
 
   🔗 **참고링크**
 
-  - [mapping-modifiers](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#mapping-modifiers)
+  - [14-](https://www.typescriptlang.org/docs/handbook/2/mapped-types.html#14-)
 
   ### 15. Function vs (...arg: any) => any
+
+  📚 관련 문제: 3196.Flip_Arguments
 
   - 전역 타입 `Function`은 JavaScript의 모든 함수 값에 존재하는 bind, call, apply 및 기타 속성과 같은 속성을 설명한다.
 
@@ -387,6 +394,8 @@
 
   ### 17. Counted Loop
 
+  📚 관련 문제: 2257.MinusOne, 3243.FlattenDepth, 4182.Fibonacci
+
   ```ts
   type Statement<T> = any;
 
@@ -399,19 +408,75 @@
     : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
   ```
 
-  ## Dates
+  ### 18. Array and Tuple
 
-  ### DAY 1 22.11.29
+  📚 관련 문제: 4484.IsTuple
 
-  1.  Pick
-  2.  Readonly
-  3.  Tuple to Object]
+  - `Array<T>`
 
-   <details>
-   <summary>학습한 내용</summary>
+    - `Array<number>` // `number[]`
+    - `Array<string>` // `string[]`
 
+    ```ts
+    interface Array<Type> {
+      /**
+       * 배열의 길이를 가져오거나 설정합니다.
+       */
+      length: number;
+
+      /**
+       * 배열에서 마지막 요소를 제거하고 반환합니다.
+       */
+      pop(): Type | undefined;
+
+      /**
+       * 배열에 새 요소를 추가하고 배열의 새 길이를 반환합니다.
+       */
+      push(...items: Type[]): number;
+
+      // ...
+    }
+    ```
+
+  - `ReadonlyArray<T>`
+
+    - `ReadonlyArray<Type>` // `readonly Type[]`
+
+  - Tuple
+    - `[string, number, ...]`
+    - Array의 요소 수와 특정 위치의 타입을 정확히 알고 있는 타입
+      - 요소 수를 초과할 수 없다.
+      - 선택적 속성(?)이 가능하다.
+      - 길이가 지정되지 않은 나머지 요소를 가질 수 있다.
+      - 매개변수와 일치시킬 수 있다.
+      ```ts
+      function readButtonInput(...args: [string, number, ...boolean[]]) {
+        const [name, version, ...input] = args;
+        // ...
+      }
+      ```
+  - Readonly Tuple
+    - `readonly [string, number, ...]`
+    - 튜플은 immutable함을 특징으로 하므로 readonly로 선언하는 것이 좋다.
+    - `as const` 단언을 하는 경우 배열 리터럴이 readonly Tuple로 추론되는데, 이런 경우 변경할 수 없는 튜플이 된다.
+
+  🔗 **참고링크**
+
+  - [Array](https://www.typescriptlang.org/docs/handbook/2/objects.html#the-array-type)
+  - [Tuple](https://www.typescriptlang.org/docs/handbook/2/objects.html#tuple-types)
+
+## Dates
+
+### DAY 1 22.11.29
+
+1.  Pick
+2.  Readonly
+3.  Tuple to Object
+
+<details>
+<summary>학습한 내용</summary>
+    
 #### List vs Array vs Tuple
-
 1.  List
 
 - mutable
@@ -459,7 +524,7 @@ interface Dictionary<Value> {
 
 [참고링크](https://stackoverflow.com/questions/59187941/whats-the-tnumber-mean-in-typescript-code)
 
-   </details>
+  </details>
 
 ### DAY 2 221130
 
@@ -469,6 +534,7 @@ interface Dictionary<Value> {
 
    <details>
    <summary>학습한 내용</summary>
+
 #### Distributive conditional types
 
 타입이 naked 타입 매개변수인 조건 타입을 `distributive conditional types`라고 한다.
@@ -499,6 +565,7 @@ Excludes<A | B | C, A>;
 
    <details>
    <summary>학습한 내용</summary>
+
 #### PromiseLike
 
 - ArrayLike 타입과 비슷하게, Promise와 유사한 프로퍼티(then: onfulfilled)를 가진 객체를 PromiseLike 타입으로 추론할 수 있다.
@@ -572,6 +639,9 @@ type Equal<X, Y> = (<T>() => T extends X ? 1 : 2) extends <B>() => B extends Y
 1.  010.Tuple to Union
 2.  012.Chainable Options
 3.  015.Last of Array
+
+<details>
+<summary>학습한 내용</summary>
 
 #### TypeScript v.4.2
 
@@ -653,6 +723,7 @@ type B2 = Q<any>; //false
 
    <details>
    <summary>학습한 내용</summary>
+
 ### PropertyKey Type
 
 ```ts
@@ -671,6 +742,7 @@ type OptionsFlags<Type> = {
 
    <details>
    <summary>학습한 내용</summary>
+
 #### Useful Generics
 
 - Record<PropertyKey, unknown> : T의 프로퍼티 K로 구성
@@ -712,6 +784,7 @@ type OptionsFlags<Type> = {
 
    <details>
    <summary>학습한 내용</summary>
+
 #### Mapping Modifiers
 
 매핑된 타입은 읽기 전용 또는 ? 추가를 지원한다.
@@ -848,9 +921,9 @@ type Iteration<
 2.  3376.InorderTraversal
 3.  4179.Flip
 
-<details>
-<summary>학습한 내용</summary>
-
+   <details>
+   <summary>학습한 내용</summary>
+   
 #### Distributive Conditional Types
 
 Distributive Conditional Types 에서 대괄호`[]`는 분배를 막는다.
@@ -873,8 +946,8 @@ type Result2 = NotDCT<string | number>;
 2.  4260.AllCombinations
 3.  4425.Greater Than
 
-<details>
-<summary>학습한 내용</summary>
+   <details>
+   <summary>학습한 내용</summary>
 
 #### 숫자를 다룰 때는 배열의 길이로(Counted Loop)
 
@@ -911,3 +984,23 @@ type AllCombinations<S extends string> = Combinations<StringToUnion<S>>;
 1.  4471.Zip
 2.  4484.IsTuple
 3.  4499.Chunk
+
+<details>
+<summary>학습한 내용</summary>
+
+1. `any[]`의 길이는 number로 평가된다.
+
+```ts
+type b = any[]['length'];
+// ^? b = number 로 추론
+```
+
+2. Tuple은 readonly이다.
+3. `never`는 모든 타입의 부분 집합이다.
+
+```ts
+type a = never extends any ? true : false;
+// ^? a = true 로 추론
+```
+
+</details>
