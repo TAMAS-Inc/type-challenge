@@ -261,6 +261,15 @@
   // => (string|number)[]
   ```
 
+  단, 대괄호로 감싼다고 해서 extends를 검사하지 않는다고 오해하면 안된다.
+
+  ```ts
+  type P<T> = [T] extends [number] ? true : false;
+  type A1 = P<1>; //true
+  type A2 = P<number>; //true
+  type A2 = P<string>; //false
+  ```
+
   🔗 **참고링크**
 
   - [never는 빈 유니온 처럼 동작한다.](https://github.com/microsoft/TypeScript/issues/23182#issuecomment-379094672)
@@ -356,7 +365,7 @@
       object = { prop: 0 };
       object = [];
       object = 42;
-      object = 'string';
+      object = "string";
       object = false;
 
       // object = null; // error
@@ -372,20 +381,20 @@
       ```ts
       // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
       const obj1: { [key: string]: any } = {};
-      obj1['name'] = 'hi';
-      obj1[1] = 'hi';
+      obj1["name"] = "hi";
+      obj1[1] = "hi";
 
       // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-      const obj2: { name: string; num: number } = { name: '', num: 0 };
-      obj2['name'] = 'hi';
+      const obj2: { name: string; num: number } = { name: "", num: 0 };
+      obj2["name"] = "hi";
       // obj2["something"] = "hi"; // error
 
       // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
       const obj3: { [key: string]: any; name: string } = {
-        name: 'should_be_initialized',
+        name: "should_be_initialized",
       };
       // const obj4: { [key: string]: any; name: string } = {}; // error
-      obj3['something'] = 'hi';
+      obj3["something"] = "hi";
       ```
 
   🔗 **참고링크**
@@ -404,8 +413,8 @@
   type Iteration<
     T extends any[],
     Termination extends number = 1,
-    Increment extends any[] = [],
-  > = Termination extends Increment['length']
+    Increment extends any[] = []
+  > = Termination extends Increment["length"]
     ? T
     : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
   ```
@@ -859,7 +868,7 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     object = { prop: 0 };
     object = [];
     object = 42;
-    object = 'string';
+    object = "string";
     object = false;
 
     // object = null; // error
@@ -875,20 +884,20 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     ```ts
     // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
     const obj1: { [key: string]: any } = {};
-    obj1['name'] = 'hi';
-    obj1[1] = 'hi';
+    obj1["name"] = "hi";
+    obj1[1] = "hi";
 
     // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-    const obj2: { name: string; num: number } = { name: '', num: 0 };
-    obj2['name'] = 'hi';
+    const obj2: { name: string; num: number } = { name: "", num: 0 };
+    obj2["name"] = "hi";
     // obj2["something"] = "hi"; // error
 
     // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
     const obj3: { [key: string]: any; name: string } = {
-      name: 'should_be_initialized',
+      name: "should_be_initialized",
     };
     // const obj4: { [key: string]: any; name: string } = {}; // error
-    obj3['something'] = 'hi';
+    obj3["something"] = "hi";
     ```
 
 #### Counted Loop
@@ -899,8 +908,8 @@ type Statement<T> = any;
 type Iteration<
   T extends any[],
   Termination extends number = 1,
-  Increment extends any[] = [],
-> = Termination extends Increment['length']
+  Increment extends any[] = []
+> = Termination extends Increment["length"]
   ? T
   : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
 ```
@@ -957,12 +966,12 @@ type Result2 = NotDCT<string | number>;
 type GreaterThan<
   T extends number,
   U extends number,
-  C extends any[] = [],
-> = T extends C['length']
+  C extends any[] = []
+> = T extends C["length"]
   ? false
-  : U extends C['length']
+  : U extends C["length"]
   ? true
-  : GreaterThan<T, U, [...C, '']>;
+  : GreaterThan<T, U, [...C, ""]>;
 ```
 
 #### string -> union 쪼개기 및 Distributive Conditional Types
@@ -970,7 +979,7 @@ type GreaterThan<
 ```ts
 type StringToUnion<S extends string> = S extends `${infer A}${infer Rest}`
   ? A | StringToUnion<Rest>
-  : '';
+  : "";
 
 type Combinations<T extends string, U = T> = U extends T
   ? U | `${U}${Combinations<Exclude<T, U>>}`
@@ -993,7 +1002,7 @@ type AllCombinations<S extends string> = Combinations<StringToUnion<S>>;
 1. `any[]`의 길이는 number로 평가된다.
 
 ```ts
-type b = any[]['length'];
+type b = any[]["length"];
 // ^? b = number 로 추론
 ```
 
