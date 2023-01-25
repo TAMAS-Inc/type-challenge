@@ -80,6 +80,7 @@
   - [DAY 23 230118](#day-23-230118)
     - [Array and Tuple](#18-array-and-tuple)
   - [DAY 24 230120](#day-24-230120)
+  - [DAY 25 230125](#day-25-230125)
 
   ## Types
 
@@ -1011,3 +1012,9 @@ type a = never extends any ? true : false;
 1.  4518.Fill
 2.  4803.Trim Right
 3.  5117.Without
+
+### DAY 25 230125
+
+1.  5140.Trunc
+2.  5153.IndexOf
+3.  5310.Join
