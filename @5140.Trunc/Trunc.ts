@@ -3,10 +3,10 @@
   -------
   by jiangshan (@jiangshanmeta) #medium #template-literal
 
-  ### Question
+  ### 문제
 
-  Implement the type version of ```Math.trunc```, which takes string or number and returns the integer part of a number by removing any fractional digits.
-
+  문자열 또는 숫자를 취하고 소수를 제거하여 숫자의 정수 부분을 반환하는 ```Math.trunc```의 타입 버전을 구현합니다.
+  
   For example:
 
   ```typescript

@@ -3,10 +3,10 @@
   -------
   by Pineapple (@Pineapple0919) #medium #array
 
-  ### Question
+  ### 문제
 
-  Implement the type version of Array.indexOf, indexOf<T, U> takes an Array T, any U and returns the index of the first U in Array T.
-
+  Array.indexOf의 타입 버전을 구현한 indexOf<T, U>는 배열 T, 임의의 U를 취하고 배열 T에서 첫 번째 U의 인덱스를 반환합니다.
+  
   ```ts
   type Res = IndexOf<[1, 2, 3], 2>; // expected to be 1
   type Res1 = IndexOf<[2,6, 3,8,4,1,7, 3,9], 3>; // expected to be 2

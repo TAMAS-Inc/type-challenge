@@ -3,9 +3,10 @@
   -------
   by Pineapple (@Pineapple0919) #medium #array
 
-  ### Question
+  ### 문제
 
-  Implement the type version of Array.join, Join<T, U> takes an Array T, string or number U and returns the Array T with U stitching up.
+  Array.join의 타입 버전을 구현한 Join<T, U>은 배열 T, 문자열 또는 숫자 U를 취하여 U가 스티칭된 배열 T를 반환합니다.
+
 
   ```ts
   type Res = Join<["a", "p", "p", "l", "e"], "-">; // expected to be 'a-p-p-l-e'
