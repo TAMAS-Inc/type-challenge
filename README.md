@@ -81,6 +81,7 @@
     - [Array and Tuple](#18-array-and-tuple)
   - [DAY 24 230120](#day-24-230120)
   - [DAY 25 230125](#day-25-230125)
+  - [DAY 26 230130](#day-26-230130)
 
   ## Types
 
@@ -365,7 +366,7 @@
       object = { prop: 0 };
       object = [];
       object = 42;
-      object = "string";
+      object = 'string';
       object = false;
 
       // object = null; // error
@@ -381,20 +382,20 @@
       ```ts
       // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
       const obj1: { [key: string]: any } = {};
-      obj1["name"] = "hi";
-      obj1[1] = "hi";
+      obj1['name'] = 'hi';
+      obj1[1] = 'hi';
 
       // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-      const obj2: { name: string; num: number } = { name: "", num: 0 };
-      obj2["name"] = "hi";
+      const obj2: { name: string; num: number } = { name: '', num: 0 };
+      obj2['name'] = 'hi';
       // obj2["something"] = "hi"; // error
 
       // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
       const obj3: { [key: string]: any; name: string } = {
-        name: "should_be_initialized",
+        name: 'should_be_initialized',
       };
       // const obj4: { [key: string]: any; name: string } = {}; // error
-      obj3["something"] = "hi";
+      obj3['something'] = 'hi';
       ```
 
   🔗 **참고링크**
@@ -413,8 +414,8 @@
   type Iteration<
     T extends any[],
     Termination extends number = 1,
-    Increment extends any[] = []
-  > = Termination extends Increment["length"]
+    Increment extends any[] = [],
+  > = Termination extends Increment['length']
     ? T
     : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
   ```
@@ -868,7 +869,7 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     object = { prop: 0 };
     object = [];
     object = 42;
-    object = "string";
+    object = 'string';
     object = false;
 
     // object = null; // error
@@ -884,20 +885,20 @@ type ReadonlyPartial<T> = { +readonly [P in keyof T]+?: T[P] }; // Add readonly 
     ```ts
     // string 타입의 key. 모든 타입의 value를 삽입 가능한 객체
     const obj1: { [key: string]: any } = {};
-    obj1["name"] = "hi";
-    obj1[1] = "hi";
+    obj1['name'] = 'hi';
+    obj1[1] = 'hi';
 
     // 타입이 지정된 객체. 이외의 프로퍼티 삽입 불가능
-    const obj2: { name: string; num: number } = { name: "", num: 0 };
-    obj2["name"] = "hi";
+    const obj2: { name: string; num: number } = { name: '', num: 0 };
+    obj2['name'] = 'hi';
     // obj2["something"] = "hi"; // error
 
     // string 타입의 key, 모든 타입의 value를 삽입 가능. 기본적으로 명시된 속성은 초기화 되어야 한다.
     const obj3: { [key: string]: any; name: string } = {
-      name: "should_be_initialized",
+      name: 'should_be_initialized',
     };
     // const obj4: { [key: string]: any; name: string } = {}; // error
-    obj3["something"] = "hi";
+    obj3['something'] = 'hi';
     ```
 
 #### Counted Loop
@@ -908,8 +909,8 @@ type Statement<T> = any;
 type Iteration<
   T extends any[],
   Termination extends number = 1,
-  Increment extends any[] = []
-> = Termination extends Increment["length"]
+  Increment extends any[] = [],
+> = Termination extends Increment['length']
   ? T
   : Iteration<Statement<T>, Termination, [unknown, ...Increment]>;
 ```
@@ -966,12 +967,12 @@ type Result2 = NotDCT<string | number>;
 type GreaterThan<
   T extends number,
   U extends number,
-  C extends any[] = []
-> = T extends C["length"]
+  C extends any[] = [],
+> = T extends C['length']
   ? false
-  : U extends C["length"]
+  : U extends C['length']
   ? true
-  : GreaterThan<T, U, [...C, ""]>;
+  : GreaterThan<T, U, [...C, '']>;
 ```
 
 #### string -> union 쪼개기 및 Distributive Conditional Types
@@ -979,7 +980,7 @@ type GreaterThan<
 ```ts
 type StringToUnion<S extends string> = S extends `${infer A}${infer Rest}`
   ? A | StringToUnion<Rest>
-  : "";
+  : '';
 
 type Combinations<T extends string, U = T> = U extends T
   ? U | `${U}${Combinations<Exclude<T, U>>}`
@@ -1002,7 +1003,7 @@ type AllCombinations<S extends string> = Combinations<StringToUnion<S>>;
 1. `any[]`의 길이는 number로 평가된다.
 
 ```ts
-type b = any[]["length"];
+type b = any[]['length'];
 // ^? b = number 로 추론
 ```
 
@@ -1027,3 +1028,9 @@ type a = never extends any ? true : false;
 1.  5140.Trunc
 2.  5153.IndexOf
 3.  5310.Join
+
+### DAY 26 230130
+
+1.  5317.LastIndexOf
+2.  5360.Unique
+3.  5821.MapTypes
